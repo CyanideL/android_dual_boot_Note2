@@ -17,7 +17,7 @@ DEFAULTROM=`/sbin/busybox cat /.secondrom/media/.defaultrom`
 # Galaxy Note 2 N7105 block device
 # Don't use /dev/block/platform/*/by-name/* symlink!
 SYSTEMDEV="/dev/block/mmcblk0p13"
-DATADEV="/dev/block/mmcblk0p17"
+DATADEV="/dev/block/mmcblk0p16"
 
 if /sbin/busybox [ "$DEFAULTROM" == "1" ]; then
   SYSTEMDEV="/.secondrom/media/.secondrom/system.img"

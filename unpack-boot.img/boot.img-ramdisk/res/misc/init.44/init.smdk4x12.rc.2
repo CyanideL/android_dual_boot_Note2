@@ -109,7 +109,6 @@ on post-fs-data
     chown dhcp dhcp /data/misc/dhcp
     chown system system /efs/wifi/.mac.info
     chmod 0664 /efs/wifi/.mac.info
-    mkdir /data/local 0751 root root
     #chown wifi wifi /data/misc/wifi 
     #chown wifi wifi /data/misc/wifi/wpa_supplicant.conf
 
@@ -157,7 +156,7 @@ on boot
     setprop ro.build.product smdk4x12
     setprop ro.product.device smdk4x12
     # setprop ro.radio.noril yes
-    setprop ro.securestorage.knox true
+    setprop ro.securestorage.knox false
 
 # mobicore
     mkdir /data/app/mcRegistry 0775 system system

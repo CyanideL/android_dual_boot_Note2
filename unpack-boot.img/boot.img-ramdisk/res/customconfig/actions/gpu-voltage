@@ -12,4 +12,5 @@ else
     echo ${GPUVOLT2}000 > /sys/module/mali/parameters/step1_vol
     echo ${GPUVOLT3}000 > /sys/module/mali/parameters/step2_vol
     echo ${GPUVOLT4}000 > /sys/module/mali/parameters/step3_vol
+    echo ${GPUVOLT5}000 > /sys/module/mali/parameters/step3_vol
 fi

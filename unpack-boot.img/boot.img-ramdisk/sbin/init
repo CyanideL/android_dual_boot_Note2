@@ -23,7 +23,7 @@ fi
 # Galaxy Note 2 N7105 block device
 # Don't use /dev/block/platform/*/by-name/* symlink!
 SYSTEMDEV="/dev/block/mmcblk0p13"
-DATADEV="/dev/block/mmcblk0p17"
+DATADEV="/dev/block/mmcblk0p16"
 CACHEDEV="/dev/block/mmcblk0p12"
 
 # Normal boot
@@ -31,7 +31,7 @@ CACHEDEV="/dev/block/mmcblk0p12"
 /sbin/busybox mkdir -p /dev/block
 /sbin/busybox mknod $CACHEDEV b 179 12; # /cache
 /sbin/busybox mknod $SYSTEMDEV b 179 13; # /system
-/sbin/busybox mknod $DATADEV b 259 1; # /data
+/sbin/busybox mknod $DATADEV b 259 0; # /data
 /sbin/busybox mknod /dev/block/loop0 b 7 0
 
 /sbin/busybox mkdir /mnt

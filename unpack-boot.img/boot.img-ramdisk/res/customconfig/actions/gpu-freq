@@ -12,4 +12,5 @@ else
     echo $GPUFREQ2 > /sys/module/mali/parameters/step1_clk
     echo $GPUFREQ3 > /sys/module/mali/parameters/step2_clk
     echo $GPUFREQ4 > /sys/module/mali/parameters/step3_clk
+    echo $GPUFREQ5 > /sys/module/mali/parameters/step4_clk
 fi
