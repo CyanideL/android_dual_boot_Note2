@@ -1,5 +1,7 @@
 #!/system/bin/sh
 
+BB=/sbin/busybox
+
 . /res/customconfig/customconfig-helper;
 read_defaults;
 read_config;
@@ -28,6 +30,11 @@ cd /;
 #	cd /;
 #}
 #extract_payload; #disabled
+
+# add gesture_set.sh with default gustures to data to be used by user.
+if [ ! -e /data/gesture_set.sh ]; then
+	$BB cp -a /res/misc/gesture_set.sh /data/;
+fi
 
 # copy cron files
 if [ ! -e /data/crontab ]; then
