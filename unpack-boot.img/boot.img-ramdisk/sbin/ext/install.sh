@@ -1,7 +1,5 @@
 #!/system/bin/sh
 
-BB=/sbin/busybox
-
 . /res/customconfig/customconfig-helper;
 read_defaults;
 read_config;
@@ -31,33 +29,20 @@ cd /;
 #}
 #extract_payload; #disabled
 
-# add gesture_set.sh with default gustures to data to be used by user.
-if [ ! -e /data/gesture_set.sh ]; then
-	$BB cp -a /res/misc/gesture_set.sh /data/;
-fi
-
 # copy cron files
-if [ ! -e /data/crontab ]; then
-/sbin/busybox cp -a /res/crontab/ /data/
-/sbin/busybox rm -rf /data/crontab/cron/ > /dev/null 2>&1;
+cp -a /res/crontab/ /data/
+rm -rf /data/crontab/cron/ > /dev/null 2>&1;
 if [ ! -e /data/crontab/custom_jobs ]; then
-/sbin/busybox touch /data/crontab/custom_jobs;
-/sbin/busybox chmod 777 /data/crontab/custom_jobs;
-fi;
-
-if [ ! -e /system/etc/cron.d/crontabs/root ]; then
-/sbin/busybox mkdir -p /system/etc/cron.d/crontabs/;
-/sbin/busybox cp -a /data/crontab/root /system/etc/cron.d/crontabs/;
-/sbin/busybox chown 0:0 /system/etc/cron.d/crontabs/*;
-/sbin/busybox chmod 777 /system/etc/cron.d/crontabs/*;
+touch /data/crontab/custom_jobs;
+chmod 777 /data/crontab/custom_jobs;
 fi;
 
 # copy sqlite
-/sbin/busybox cp -a /res/misc/sql/libsqlite.so /system/lib/libsqlite.so;
-/sbin/busybox cp -a /res/misc/sql/sqlite3 /system/xbin/sqlite3;
-/sbin/busybox chmod 644 /system/lib/libsqlite.so;
-/sbin/busybox chmod 755 /system/xbin/sqlite3;
-/sbin/busybox rm -f /res/misc/sql/;
+cp -a /res/misc/sql/libsqlite.so /system/lib/libsqlite.so;
+cp -a /res/misc/sql/sqlite3 /system/xbin/sqlite3;
+chmod 644 /system/lib/libsqlite.so;
+chmod 755 /system/xbin/sqlite3;
+rm -f /res/misc/sql/;
 
-/sbin/busybox mount -o remount,rw /;
-/sbin/busybox mount -o remount,rw /system;
+mount -o remount,rw /;
+mount -o remount,rw /system;
