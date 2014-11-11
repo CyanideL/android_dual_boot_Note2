@@ -287,10 +287,6 @@ on fs
 
     setprop ro.crypto.fuse_sdcard true
 
-    # blackhawk: busybox permissions for ordinary users
-    chmod 0755 /sbin
-    chmod 0755 /sbin/busybox
-
 # for LogMeIn
     mount ext4 loop@/.secondrom/media/.secondrom/system.img /system rw wait noatime nodiratime remount
     # blackhawk: add f2fs support

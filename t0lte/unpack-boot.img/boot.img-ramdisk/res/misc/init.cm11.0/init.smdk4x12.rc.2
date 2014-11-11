@@ -52,10 +52,6 @@ on fs
     chown radio system /efs
     chmod 0771 /efs
 
-    # blackhawk: busybox permissions for ordinary users
-    chmod 0755 /sbin
-    chmod 0755 /sbin/busybox
-
 on post-fs-data
      # we will remap this as /mnt/sdcard with the sdcard fuse tool
      mkdir /data/media 0775 media_rw media_rw
