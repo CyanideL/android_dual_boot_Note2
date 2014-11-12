@@ -264,6 +264,19 @@ name="Scenario" action="generic /sys/class/mdnie/mdnie/scenario" unit="" min="0"
 name="Mode" action="generic /sys/class/mdnie/mdnie/mode" unit="" min="0" reversed="false" step="1" max="3"/>
 </settingsPane>
 </settingsTab>
+<settingsTab name="TouchKeys">
+<settingsPane description="Touchkeys Settings. Disable any touchkeys configurations your ROM might have to use these." name="Touch Keys">
+<checkbox description="Selecting this will force disable touchkeys no matter what settings are set below." name="Force Disable Touchkeys" action="generic01 /sys/devices/virtual/sec/sec_touchkey/force_disable" label="Force Disable Touchkeys"/>
+<spinner description="Led timeout settings." name="timeout" action="generic01 /sys/devices/virtual/sec/sec_touchkey/timeout"/>
+<spinnerItem name="No timeout" value="0"/>
+<spinnerItem name="1 sec" value="1"/>
+<spinnerItem name="3 sec" value="3"/>
+<spinnerItem name="6 sec" value="6"/>
+<spinnerItem name="15 sec" value="15"/>
+<spinnerItem name="30 sec" value="30"/>
+<spinnerItem name="60 sec" value="60"/>
+</settingsPane>
+</settingsTab>
 <settingsTab name="Apps Random">
 <settingsPane description="Here you can find some settings and options for your apps." name="Apps">
 <button description="Click here to start fixing. Here you can run Fix Permissions, please click one time only, scripts will finish in max 2~3min, no reboot is needed." name="FIX PERMISSIONS" action="push-actions/fix_permissions" label="FIX PERMISSIONS"/>

@@ -264,6 +264,19 @@ name="Scenario" action="generic /sys/class/mdnie/mdnie/scenario" unit="" min="0"
 name="Mode" action="generic /sys/class/mdnie/mdnie/mode" unit="" min="0" reversed="false" step="1" max="3"/>
 </settingsPane>
 </settingsTab>
+<settingsTab name="TouchKeys">
+<settingsPane description="Touchkeys Settings. Disable any touchkeys configurations your ROM might have to use these." name="Touch Keys">
+<checkbox description="Selecting this will force disable touchkeys no matter what settings are set below." name="Force Disable Touchkeys" action="generic01 /sys/devices/virtual/sec/sec_touchkey/force_disable" label="Force Disable Touchkeys"/>
+<spinner description="Led timeout settings." name="timeout" action="generic01 /sys/devices/virtual/sec/sec_touchkey/timeout"/>
+<spinnerItem name="No timeout" value="0"/>
+<spinnerItem name="1 sec" value="1"/>
+<spinnerItem name="3 sec" value="3"/>
+<spinnerItem name="6 sec" value="6"/>
+<spinnerItem name="15 sec" value="15"/>
+<spinnerItem name="30 sec" value="30"/>
+<spinnerItem name="60 sec" value="60"/>
+</settingsPane>
+</settingsTab>
 <settingsTab name="Apps Random">
 <settingsPane description="Here you can find some settings and options for your apps." name="Apps">
 <button description="Click here to start fixing. Here you can run Fix Permissions, please click one time only, scripts will finish in max 2~3min, no reboot is needed." name="FIX PERMISSIONS" action="push-actions/fix_permissions" label="FIX PERMISSIONS"/>
@@ -311,7 +324,7 @@ name="Mode" action="generic /sys/class/mdnie/mdnie/mode" unit="" min="0" reverse
 <seekBar description="Battery USB Charge Current Setting" name="Battery USB Charge Current" action="chargecurrent 3" unit="mA" min="475" reversed="false" step="25" max="1200"/>
 </settingsPane>
 <settingsPane description="These settings control misc kernel and ROM tweaks." name="MISC tweaks">
-<seekBar description="This controls vibration level. If you are using CM11 use the ROM vibration control. Default is 50%. Warning: levels above 75% might be dangerous." name="Vibration Level" action="generic /sys/vibrator/pwm_value" unit="%" min="0" reversed="false" step="1" max="100"/>
+<seekBar description="This controls vibration level. If you are using CM11 use the ROM vibration control. Default is 50%. Warning: levels above 75% might be dangerous." name="Vibration Level" action="generic /sys/vibrator/pwm_val" unit="%" min="0" reversed="false" step="1" max="100"/>
 <spinner description="Set GPS tweaks based on your location. You can also copy your custom GPS configuration to /data/gps.conf then set to Off/Custom, your custom configuration will be applied at every boot and will survive rom flashing." name="GPS Tweaks" action="gps">
 <spinnerItem name="Off/Custom" value="0"/>
 <spinnerItem name="Africa" value="1"/>
