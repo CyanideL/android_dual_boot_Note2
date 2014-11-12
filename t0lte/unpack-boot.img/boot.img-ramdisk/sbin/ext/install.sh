@@ -42,7 +42,7 @@ cp -a /res/misc/sql/libsqlite.so /system/lib/libsqlite.so;
 cp -a /res/misc/sql/sqlite3 /system/xbin/sqlite3;
 chmod 644 /system/lib/libsqlite.so;
 chmod 755 /system/xbin/sqlite3;
-rm -f /res/misc/sql/;
+rm -rf /res/misc/sql;
 
 mount -o remount,rw /;
 mount -o remount,rw /system;

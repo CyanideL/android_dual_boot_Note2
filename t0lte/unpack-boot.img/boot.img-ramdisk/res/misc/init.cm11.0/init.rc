@@ -611,7 +611,7 @@ service mdnsd /system/bin/mdnsd
     disabled
     oneshot
 
-service postinit /sbin/ext/post-init.sh
+service postinit /sbin/ext/post-init-cm.sh
 	class core
 	user root
 	oneshot
