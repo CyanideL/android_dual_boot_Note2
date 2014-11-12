@@ -311,7 +311,7 @@ name="Mode" action="generic /sys/class/mdnie/mdnie/mode" unit="" min="0" reverse
 <seekBar description="Battery USB Charge Current Setting" name="Battery USB Charge Current" action="chargecurrent 3" unit="mA" min="475" reversed="false" step="25" max="1200"/>
 </settingsPane>
 <settingsPane description="These settings control misc kernel and ROM tweaks." name="MISC tweaks">
-<seekBar description="This controls vibration level. If you are using CM11 use the ROM vibration control. Default is 50%. Warning: levels above 75% might be dangerous." name="Vibration Level" action="generic /sys/vibrator/pwm_value" unit="%" min="0" reversed="false" step="1" max="100"/>
+<seekBar description="This controls vibration level. If you are using CM11 use the ROM vibration control. Default is 50%. Warning: levels above 75% might be dangerous." name="Vibration Level" action="generic /sys/vibrator/pwm_val" unit="%" min="0" reversed="false" step="1" max="100"/>
 <spinner description="Set GPS tweaks based on your location. You can also copy your custom GPS configuration to /data/gps.conf then set to Off/Custom, your custom configuration will be applied at every boot and will survive rom flashing." name="GPS Tweaks" action="gps">
 <spinnerItem name="Off/Custom" value="0"/>
 <spinnerItem name="Africa" value="1"/>
