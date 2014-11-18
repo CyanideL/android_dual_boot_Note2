@@ -37,6 +37,9 @@ read_defaults
 read_config
 
 # Apps and ROOT Install
+/sbin/busybox sh /sbin/ext/unmount-cmdline.sh;
+
+# Apps and ROOT Install
 /sbin/busybox sh /sbin/ext/install.sh;
 
 # Install new sensors

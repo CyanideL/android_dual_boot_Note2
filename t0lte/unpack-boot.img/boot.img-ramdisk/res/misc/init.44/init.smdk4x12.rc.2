@@ -815,3 +815,12 @@ service BCS-daemon /system/bin/connfwexe
     class main
     user root
     group system radio inet net_raw
+
+# blackhawk: cmdline hijacking end
+on early-init
+    start umount_cmdline
+
+service umount_cmdline /sbin/ext/umount-cmdline.sh
+   user root
+   disabled
+   oneshot
