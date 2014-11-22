@@ -264,6 +264,11 @@ name="TouchBoost Frequency" action="generic /sys/class/misc/toucboost_switch/tou
 name="Scenario" action="generic /sys/class/mdnie/mdnie/scenario" unit="" min="0" reversed="false" step="1" max="8"/>
 <seekBar description="By increasing this you will get warmer colors (good for night). Has no effect when Scenario is set to 0."
 name="Mode" action="generic /sys/class/mdnie/mdnie/mode" unit="" min="0" reversed="false" step="1" max="3"/>
+<checkbox description="MDNIE Negative Switch" name="Negative" action="generic01 /sys/class/mdnie/mdnie/negative" label="MDNIE Negative Switch"/>
+</settingsPane>
+<settingsPane description="Here you can manipulate the MDNIE HiJack Settings." name="MDNIE HiJack Control">
+<checkbox description="MDNIE HiJack Master Switch" name="HiJack" action="generic01 /sys/class/mdnie/mdnie/hijack" label="MDNIE HiJack Master Switch"/>
+<checkbox description="MDNIE Sharpness Switch" name="Sharpness" action="generic01 /sys/class/mdnie/mdnie/sharpen" label="MDNIE Sharpness Switch"/>
 </settingsPane>
 </settingsTab>
 <settingsTab name="TouchKeys">
