@@ -264,7 +264,6 @@ name="TouchBoost Frequency" action="generic /sys/class/misc/toucboost_switch/tou
 name="Scenario" action="generic /sys/class/mdnie/mdnie/scenario" unit="" min="0" reversed="false" step="1" max="8"/>
 <seekBar description="By increasing this you will get warmer colors (good for night). Has no effect when Scenario is set to 0."
 name="Mode" action="generic /sys/class/mdnie/mdnie/mode" unit="" min="0" reversed="false" step="1" max="3"/>
-<checkbox description="Toggle Negative Mdnie Mode" name="NegativeMode" action="generic01 /sys/class/mdnie/mdnie/negative" label="NegativeMode"/>
 </settingsPane>
 </settingsTab>
 <settingsTab name="TouchKeys">
@@ -281,6 +280,8 @@ name="Mode" action="generic /sys/class/mdnie/mdnie/mode" unit="" min="0" reverse
 </settingsTab>
 <settingsTab name="Memory">
 <settingsPane description="These settings control memory settings. Keep in mind that these settings give you 'more' memory at the cost of CPU cycles, which means less battery. A restart is recommended when changing memory settings. " name="Memory Settings">
+<checkbox description="Check this to enable Zswap. Don't disable this if your memory is almost full, free some memory before disabling." name="ZSWAP" action="swap" label="ZSWAP"/>
+<seekBar description="Use this to set swappiness level." name="ZSWAP LEVEL" action="generic /proc/sys/vm/swappiness" unit="" min="0" reversed="false" step="1" max="150"/>
 <seekBar description="Dirty background memory buffer, more you set, more memory will be used for write buffer for background operations. Buffer is released on need to free RAM (Default: 15%)" name="Dirty Background ratio" action="generic /proc/sys/vm/dirty_background_ratio" unit="%" min="5" reversed="false" step="5" max="80"/>
 <seekBar description="Dirty real time memory buffer, more you set, more memory will be used for write buffer for real time operations. Buffer is released on need to free RAM (Default: 20%)" name="Dirty ratio" action="generic /proc/sys/vm/dirty_ratio" unit="%" min="5" reversed="false" step="5" max="90"/>
 <checkbox description="This will enable Kernel Same-page Merging. KSM is a kernel thread that runs in the background and compares pages in memory, if two pages are found to be the same, the KSM thread merges them back as a single copy-on-write page of memory, thus freeing memory." name="KSM" action="generic01 /sys/kernel/mm/ksm/run" label="KSM"/>

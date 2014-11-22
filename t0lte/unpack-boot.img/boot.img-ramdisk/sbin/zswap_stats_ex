@@ -1,11 +1,11 @@
-#!/system/xbin/bash
+#!/system/bin/sh
 #Tweaked by Dorimanx
 ##
 # Show stats for all (initialized) zram devices
 # Author: Nitin Gupta
 #
 
-echo "ZRAM STATS"
+echo "ZSWAP STATS"
 stats=(
 	"disksize"
 	"num_reads"
@@ -35,7 +35,7 @@ function show_stat()
 }
 
 #for dev in `find /sys/block -name 'zram*'`; do
-find /sys/block -name 'zram*' | while read dev; do
+find /sys/block -name 'vnswap*' | while read dev; do
 	orig=0
 	compr=0
 	total=0

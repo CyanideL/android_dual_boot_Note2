@@ -3,9 +3,9 @@
 PROFILE=`cat /data/.shift/.active.profile`;
 . /data/.shift/${PROFILE}.profile;
 
-if [ "$zram_size" != 4 ]; then
+if [ "$zswap_size" != 4 ]; then
 	if [ -e /system/xbin/bash ] || [ -e /system/bin/bash ]; then
-		/sbin/zram_stats_ex;
+		/sbin/zswap_stats_ex;
 	else
 		/sbin/busybox mount -o remount,rw /;
 		echo "total         used         free" > /tmp/Swap_Check;
@@ -15,5 +15,5 @@ if [ "$zram_size" != 4 ]; then
 		echo "$SWAP_CHECK";
 	fi;
 else
-	echo "ZRAM IS OFFLINE";
+	echo "ZSWAP IS OFFLINE";
 fi;

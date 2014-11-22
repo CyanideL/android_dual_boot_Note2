@@ -9,12 +9,12 @@ mount -o remount,rw /
 case "${swap}" in
   on)
     swapaccount=1
-    mkswap /dev/block/zram0
-    swapon /dev/block/zram0
+    mkswap /dev/block/vnswap0
+    swapon /dev/block/vnswap0
     ;;
   off)
     swapaccount=0
-    swapoff /dev/block/zram0
+    swapoff /dev/block/vnswap0
     ;;
 esac;
 
