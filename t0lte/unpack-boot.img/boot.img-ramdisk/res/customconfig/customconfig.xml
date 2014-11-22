@@ -269,6 +269,72 @@ name="Mode" action="generic /sys/class/mdnie/mdnie/mode" unit="" min="0" reverse
 <settingsPane description="Here you can manipulate the MDNIE HiJack Settings." name="MDNIE HiJack Control">
 <checkbox description="MDNIE HiJack Master Switch" name="HiJack" action="generic01 /sys/class/mdnie/mdnie/hijack" label="MDNIE HiJack Master Switch"/>
 <checkbox description="MDNIE Sharpness Switch" name="Sharpness" action="generic01 /sys/class/mdnie/mdnie/sharpen" label="MDNIE Sharpness Switch"/>
+<seekBar description="Global black level, will shift black RGB setting by this value default = 0."
+name="Black Level" action="generic /sys/class/mdnie/mdnie/black" unit="" min="-128" reversed="false" step="1" max="128"/>
+</settingsPane>
+<settingsPane description="Here you can manipulate black level colors." name="Black level color control">
+<seekBar description="Control black/blue color settings."
+name="Black/Blue Level" action="generic /sys/class/mdnie/mdnie/black_blue" unit="" min="0" reversed="false" step="1" max="255"/>
+<seekBar description="Control black/green color settings."
+name="Black/Green Level" action="generic /sys/class/mdnie/mdnie/black_green" unit="" min="0" reversed="false" step="1" max="255"/>
+<seekBar description="Control black/red color settings."
+name="Black/Red Level" action="generic /sys/class/mdnie/mdnie/black_red" unit="" min="0" reversed="false" step="1" max="255"/>
+</settingsPane>
+<settingsPane description="Here you can manipulate Blue level colors." name="Blue level color control">
+<seekBar description="Control black/blue color settings."
+name="Blue/Blue Level" action="generic /sys/class/mdnie/mdnie/blue_blue" unit="" min="0" reversed="false" step="1" max="255"/>
+<seekBar description="Control black/green color settings."
+name="Blue/Green Level" action="generic /sys/class/mdnie/mdnie/blue_green" unit="" min="0" reversed="false" step="1" max="255"/>
+<seekBar description="Control black/red color settings."
+name="Blue/Red Level" action="generic /sys/class/mdnie/mdnie/blue_red" unit="" min="0" reversed="false" step="1" max="255"/>
+</settingsPane>
+<settingsPane description="Here you can manipulate Cyan level colors." name="Cyan level color control">
+<seekBar description="Control cyan/blue color settings."
+name="Cyan/Blue Level" action="generic /sys/class/mdnie/mdnie/cyan_blue" unit="" min="0" reversed="false" step="1" max="255"/>
+<seekBar description="Control cyan/green color settings."
+name="Cyan/Green Level" action="generic /sys/class/mdnie/mdnie/cyan_green" unit="" min="0" reversed="false" step="1" max="255"/>
+<seekBar description="Control cyan/red color settings."
+name="Cyan/Red Level" action="generic /sys/class/mdnie/mdnie/cyan_red" unit="" min="0" reversed="false" step="1" max="255"/>
+</settingsPane>
+<settingsPane description="Here you can manipulate Green level colors." name="Green level color control">
+<seekBar description="Control green/blue color settings."
+name="Green/Blue Level" action="generic /sys/class/mdnie/mdnie/green_blue" unit="" min="0" reversed="false" step="1" max="255"/>
+<seekBar description="Control green/green color settings."
+name="Green/Green Level" action="generic /sys/class/mdnie/mdnie/green_green" unit="" min="0" reversed="false" step="1" max="255"/>
+<seekBar description="Control green/red color settings."
+name="Green/Red Level" action="generic /sys/class/mdnie/mdnie/green_red" unit="" min="0" reversed="false" step="1" max="255"/>
+</settingsPane>
+<settingsPane description="Here you can manipulate Magenta level colors." name="Magenta level color control">
+<seekBar description="Control magenta/blue color settings."
+name="Magenta/Blue Level" action="generic /sys/class/mdnie/mdnie/magenta_blue" unit="" min="0" reversed="false" step="1" max="255"/>
+<seekBar description="Control magenta/green color settings."
+name="Magenta/Green Level" action="generic /sys/class/mdnie/mdnie/magenta_green" unit="" min="0" reversed="false" step="1" max="255"/>
+<seekBar description="Control magenta/red color settings."
+name="Magenta/Red Level" action="generic /sys/class/mdnie/mdnie/magenta_red" unit="" min="0" reversed="false" step="1" max="255"/>
+</settingsPane>
+<settingsPane description="Here you can manipulate Red level colors." name="Red level color control">
+<seekBar description="Control red/blue color settings."
+name="Red/Blue Level" action="generic /sys/class/mdnie/mdnie/red_blue" unit="" min="0" reversed="false" step="1" max="255"/>
+<seekBar description="Control red/green color settings."
+name="Red/Green Level" action="generic /sys/class/mdnie/mdnie/red_green" unit="" min="0" reversed="false" step="1" max="255"/>
+<seekBar description="Control red/red color settings."
+name="Red/Red Level" action="generic /sys/class/mdnie/mdnie/red_red" unit="" min="0" reversed="false" step="1" max="255"/>
+</settingsPane>
+<settingsPane description="Here you can manipulate White level colors." name="White level color control">
+<seekBar description="Control white/blue color settings."
+name="White/Blue Level" action="generic /sys/class/mdnie/mdnie/black_blue" unit="" min="0" reversed="false" step="1" max="255"/>
+<seekBar description="Control white/green color settings."
+name="White/Green Level" action="generic /sys/class/mdnie/mdnie/black_green" unit="" min="0" reversed="false" step="1" max="255"/>
+<seekBar description="Control white/red color settings."
+name="White/Red Level" action="generic /sys/class/mdnie/mdnie/black_red" unit="" min="0" reversed="false" step="1" max="255"/>
+</settingsPane>
+<settingsPane description="Here you can manipulate Yellow level colors." name="Yellow level color control">
+<seekBar description="Control yellow/blue color settings."
+name="Yellow/Blue Level" action="generic /sys/class/mdnie/mdnie/yellow_blue" unit="" min="0" reversed="false" step="1" max="255"/>
+<seekBar description="Control white/green color settings."
+name="Yellow/Green Level" action="generic /sys/class/mdnie/mdnie/yellow_green" unit="" min="0" reversed="false" step="1" max="255"/>
+<seekBar description="Control white/red color settings."
+name="Yellow/Red Level" action="generic /sys/class/mdnie/mdnie/yellow_red" unit="" min="0" reversed="false" step="1" max="255"/>
 </settingsPane>
 </settingsTab>
 <settingsTab name="TouchKeys">
