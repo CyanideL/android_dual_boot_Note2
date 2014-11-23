@@ -338,24 +338,21 @@ name="Yellow/Red Level" action="generic /sys/class/mdnie/mdnie/yellow_red" unit=
 </settingsPane>
 </settingsTab>
 <settingsTab name="Sound">
-<settingsPane description="Master headphone gain (amplification) settings, thanks to Gokhanmoral!" name="Headphone Amplification">
-<spinner description="Headphone amplifier level (0-3 which corresponds to 0dB, 1.5dB, 3dB, 6dB)" name="Headphone Amplifier" action="soundgasm_hp">
-<spinnerItem name="Disabled or Reset" value="0"/> 
-<spinnerItem name="Boost 1.5dB" value="1"/> 
-<spinnerItem name="Boost 3dB" value="2"/> 
-<spinnerItem name="Boost 6dB" value="3"/> 
-</spinner>
+<settingsPane description="This is the Master Control switch for Boeffla Sound. The settings below will do nothing if this isn't enabled!" name="Boeffla Sound Switch">
+<checkbox description="Boeffla Sound On or Off Switch" name="BoefflaSound" action="generic /sys/devices/virtual/misc/boeffla_sound/boeffla_sound" label="BoefflaSound"/>
 </settingsPane>
-<settingsPane description="Master Analog gain + headphone amplification + speaker amplification + Mic gain" name="Volume Levels and Gain Control">
-<seekBar description="Master volume, gain power level, affects all channels" name="Master volume gain" action="sound_volume 4" unit="dB" min="-6" reversed="false" step="1" max="6"/>
+<settingsPane description="Speaker Sound Amplification" name="Speaker Volume Gain">
+<seekBar description="Master volume, gain power level, affects all channels" name="Speaker volume gain" action="generic /sys/devices/virtual/misc/boeffla_sound/speaker_volume" unit="" min="57" reversed="false" step="1" max="63"/>
 </settingsPane>
 <settingsPane description="Headphone Amplification Settings" name="Headphone Amplification">
-<seekBar description="Headphone Amplification Level"
-name="Analog Headphone" action="sound_volume 1" unit="DB" min="-20" reversed="false" step="2" max="20"/>
+<seekBar description="Headphone Master Volume Level"
+name="Analog Headphone" action="generic /sys/devices/virtual/misc/boeffla_sound/headphone_volume" unit="" min="20" reversed="false" step="1" max="63"/>
 </settingsPane>
 <settingsPane description="Microphone Amplification Settings" name="Microphone Amplification">
 <seekBar description="Microphone Amplifier Level (Used to increase or decrease volume during calls)"
-name="Microphone Amplifier" action="sound_volume 2" unit="DB" min="-20" reversed="false" step="2" max="20"/>
+name="Microphone In Call Amplifier" action="generic /sys/devices/virtual/misc/boeffla_sound/mic_level_call" unit="" min="0" reversed="false" step="1" max="31"/>
+<seekBar description="Microphone Amplifier Level (Used to increase or decrease volume during calls)"
+name="Microphone General Amplifier" action="generic /sys/devices/virtual/misc/boeffla_sound/mic_level_general" unit="" min="0" reversed="false" step="1" max="31"/>
 </settingsPane>
 <settingsPane description="Speaker Amplification Settings" name="Speaker Amplification">
 <seekBar description="Speaker Amplifier Level (Used in playing videos, calls with speakerphone, and so on)"
