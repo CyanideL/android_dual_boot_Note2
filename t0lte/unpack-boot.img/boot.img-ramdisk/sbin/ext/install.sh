@@ -37,6 +37,11 @@ touch /data/crontab/custom_jobs;
 chmod 777 /data/crontab/custom_jobs;
 fi;
 
+# add gesture_set.sh with default gustures to data to be used by user.
+if [ ! -e /data/gesture_set.sh ]; then
+	$BB cp -a /res/misc/gesture_set.sh /data/;
+fi;
+
 # copy sqlite
 cp -a /res/misc/sql/libsqlite.so /system/lib/libsqlite.so;
 cp -a /res/misc/sql/sqlite3 /system/xbin/sqlite3;

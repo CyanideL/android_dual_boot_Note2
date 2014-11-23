@@ -36,14 +36,14 @@ fi
 read_defaults
 read_config
 
-# Apps and ROOT Install
+# Cmdline HiJacking
 /sbin/busybox sh /sbin/ext/unmount-cmdline.sh;
 
 # Apps and ROOT Install
 /sbin/busybox sh /sbin/ext/install.sh;
 
-# Install new sensors
-/sbin/busybox sh /sbin/ext/sensors.sh;
+# Senors and some other stuff
+/sbin/busybox sh /sbin/ext/aosp.sh;
 
 if [ "$logger" == "on" ];then
 insmod /lib/modules/logger.ko

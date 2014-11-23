@@ -259,6 +259,10 @@ name="TouchWake Timeout" action="generic /sys/class/misc/touchwake/delay" unit="
 <seekBar description="TouchBoost Frequency Control"
 name="TouchBoost Frequency" action="generic /sys/class/misc/toucboost_switch/touchboost_freq" unit="kHz" min="600000" reversed="false" step="100000" max="1600000"/>
 </settingsPane>
+<settingsPane description="Here you can control kernel screen gestures, set at data - gesture_set.sh. More can be added by user !!!" name="Gestures panel">
+<checkbox description="Here you can turn on or off kernel built in gestures! See OP for instructions or ask in forum." name="Gestures switch" action="generic01 /sys/devices/virtual/misc/touch_gestures/gestures_enabled" label="Gestures switch"/>
+<button description="Click to reset gestures to default, or update with new one from dev. Gesture file will be added to data only if it is missing." name="Reset gestures" action="push-actions/reset_gestures" label="Reset Gestures"/>
+</settingsPane>
 <settingsPane description="Here you can change mDNIe (Mobile Digital Natural Image Engine). If you are using cyanogenmod then enable this in rom's advanced display settings." name="MDNIE Control">
 <seekBar description="Scenario settings."
 name="Scenario" action="generic /sys/class/mdnie/mdnie/scenario" unit="" min="0" reversed="false" step="1" max="8"/>
@@ -339,7 +343,7 @@ name="Yellow/Red Level" action="generic /sys/class/mdnie/mdnie/yellow_red" unit=
 </settingsTab>
 <settingsTab name="Sound">
 <settingsPane description="This is the Master Control switch for Boeffla Sound. The settings below will do nothing if this isn't enabled!" name="Boeffla Sound Switch">
-<checkbox description="Boeffla Sound On or Off Switch" name="BoefflaSound" action="generic /sys/devices/virtual/misc/boeffla_sound/boeffla_sound" label="BoefflaSound"/>
+<checkbox description="Boeffla Sound On or Off Switch" name="BoefflaSound" action="generic01 /sys/devices/virtual/misc/boeffla_sound/boeffla_sound" label="BoefflaSound"/>
 </settingsPane>
 <settingsPane description="Speaker Sound Amplification" name="Speaker Volume Gain">
 <seekBar description="Master volume, gain power level, affects all channels" name="Speaker volume gain" action="generic /sys/devices/virtual/misc/boeffla_sound/speaker_volume" unit="" min="57" reversed="false" step="1" max="63"/>
@@ -480,9 +484,14 @@ name="Speaker Amplifier" action="sound_volume 3" unit="DB" min="-20" reversed="f
 <button description="This will restore stweaks settings to default. Restart the device after pressing the button." name="Reset Stweaks Settings" action="reset" label="Reset Settings"/>
 </settingsPane>
 </settingsTab>
-<settingsTab name="Boot Options">
-<settingsPane description="Boot Options. WARNING! No confirmation will be asked for reboot buttons!" name="Boot Settings">
-<button description="Reboot into custom recovery where you configure, backup or flash something new" name="Reboot into ROM Recovery" action="reboot-into 0" label="Reboot into recovery"/>
+<settingsTab name="Dual Boot">
+<settingsPane description="Warning: No confirmation will be asked for reboot buttons." name="Dual Boot Settings">
+<button description="Reboot into recovery" name="Reboot into recovery" action="reboot-into 0" label="Reboot into recovery"/>
+<checkbox description="Check this if you don't want boot menu to be shown. If this options is checked, boot menu will not be shown even if you have 2nd ROM installed." name="No boot-menu" action="no-boot-menu" label="No boot-menu"/>
+<spinner description="Default ROM to boot into. If you don't have 2nd ROM installation 1st ROM will be booted." name="Default ROM" action="defaultrom">
+<spinnerItem name="1st ROM" value="0"/> 
+<spinnerItem name="2nd ROM" value="1"/> 
+</spinner>
 </settingsPane>
 </settingsTab>
 <settingsTab name="BUG-REPORT">

@@ -39,6 +39,10 @@ read_config
 # Apps and ROOT Install
 /sbin/busybox sh /sbin/ext/install.sh;
 
+# Delete some AOSP files
+rm -rf /res/misc/sensors;
+rm -rf /res/misc/tiny_hw.xml;
+
 if [ "$logger" == "on" ];then
 insmod /lib/modules/logger.ko
 fi
