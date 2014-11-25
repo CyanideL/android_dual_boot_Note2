@@ -15,10 +15,5 @@ cp -a /res/misc/sensors/sensorhubs.smdk4x12.so /system/lib/hw/sensorhubs.smdk4x1
 cp -a /res/misc/sensors/sensors.smdk4x12.so /system/lib/hw/sensors.smdk4x12.so;
 rm -rf /res/misc/sensors;
 
-# Install stereo sound mod and Incall volume FIX
-rm -rf /system/etc/sound/tiny_hw.xml;
-cp -a /res/misc/tiny_hw.xml /system/etc/sound/tiny_hw.xml;
-rm -rf /res/misc/tiny_hw.xml;
-
 mount -o remount,rw /;
 mount -o remount,rw /system;

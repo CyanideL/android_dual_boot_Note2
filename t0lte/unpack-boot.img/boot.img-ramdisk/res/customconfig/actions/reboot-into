@@ -1,15 +1,10 @@
 #!/system/bin/sh
 
-if [ "a$2" != "a" ]; then
-	if [ "$2" == "0" ]; then
-		reboot recovery;
-	else
-		echo $2 > /data/media/.nextboot;
-		sync;
-		(
-			echo "Reboot in 3Sec";
-			sleep 4;
-		)&
-		reboot;
-	fi;
-fi;
+if [ "a$2" != "a" ];then
+  if [ "$2" == "recovery" ];then
+    reboot recovery
+  else
+    echo -n $2 > /data/media/.nextboot
+    reboot
+  fi
+fi

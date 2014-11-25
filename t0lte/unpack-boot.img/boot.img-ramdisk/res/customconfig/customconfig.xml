@@ -261,7 +261,9 @@ name="TouchBoost Frequency" action="generic /sys/class/misc/toucboost_switch/tou
 </settingsPane>
 <settingsPane description="Here you can control kernel screen gestures, set at data - gesture_set.sh. More can be added by user !!!" name="Gestures panel">
 <checkbox description="Here you can turn on or off kernel built in gestures! See OP for instructions or ask in forum." name="Gestures switch" action="generic01 /sys/devices/virtual/misc/touch_gestures/gestures_enabled" label="Gestures switch"/>
-<button description="Click to reset gestures to default, or update with new one from dev. Gesture file will be added to data only if it is missing." name="Reset gestures" action="push-actions/reset_gestures" label="Reset Gestures"/>
+<checkbox description="This will enable or disable the Gesture Booster for use with kernel gestures." name="Gesture Booster" action="generic01 /sys/devices/virtual/misc/touch_gestures/gestureboost_enabled" label="Gesture Booster"/>
+<seekBar description="Gesture Booster Frequency" name="Gesture Booster Frequency" action="generic /sys/devices/virtual/touch_gestures/gesturebooster_freq" unit="kHz" min="600000" reversed="false" step="100000" max="1600000"/>
+<seekBar description="Gesture Booster Duration" name="Gesture Booster Duration" action="generic /sys/devices/virtual/touch_gestures/gesturebooster_duration" unit="ms" min="0" reversed="false" step="500" max="10000"/>
 </settingsPane>
 <settingsPane description="Here you can change mDNIe (Mobile Digital Natural Image Engine). If you are using cyanogenmod then enable this in rom's advanced display settings." name="MDNIE Control">
 <seekBar description="Scenario settings."
@@ -269,76 +271,6 @@ name="Scenario" action="generic /sys/class/mdnie/mdnie/scenario" unit="" min="0"
 <seekBar description="By increasing this you will get warmer colors (good for night). Has no effect when Scenario is set to 0."
 name="Mode" action="generic /sys/class/mdnie/mdnie/mode" unit="" min="0" reversed="false" step="1" max="3"/>
 <checkbox description="MDNIE Negative Switch" name="Negative" action="generic01 /sys/class/mdnie/mdnie/negative" label="MDNIE Negative Switch"/>
-</settingsPane>
-<settingsPane description="Here you can manipulate the MDNIE HiJack Settings." name="MDNIE HiJack Control">
-<checkbox description="MDNIE HiJack Master Switch" name="HiJack" action="generic01 /sys/class/mdnie/mdnie/hijack" label="MDNIE HiJack Master Switch"/>
-<checkbox description="MDNIE Sharpness Switch" name="Sharpness" action="generic01 /sys/class/mdnie/mdnie/sharpen" label="MDNIE Sharpness Switch"/>
-<seekBar description="Global black level, will shift black RGB setting by this value default = 0."
-name="Black Level" action="generic /sys/class/mdnie/mdnie/black" unit="" min="-128" reversed="false" step="1" max="128"/>
-</settingsPane>
-<settingsPane description="Here you can manipulate black level colors." name="Black level color control">
-<seekBar description="Control black/blue color settings."
-name="Black/Blue Level" action="generic /sys/class/mdnie/mdnie/black_blue" unit="" min="0" reversed="false" step="1" max="255"/>
-<seekBar description="Control black/green color settings."
-name="Black/Green Level" action="generic /sys/class/mdnie/mdnie/black_green" unit="" min="0" reversed="false" step="1" max="255"/>
-<seekBar description="Control black/red color settings."
-name="Black/Red Level" action="generic /sys/class/mdnie/mdnie/black_red" unit="" min="0" reversed="false" step="1" max="255"/>
-</settingsPane>
-<settingsPane description="Here you can manipulate Blue level colors." name="Blue level color control">
-<seekBar description="Control black/blue color settings."
-name="Blue/Blue Level" action="generic /sys/class/mdnie/mdnie/blue_blue" unit="" min="0" reversed="false" step="1" max="255"/>
-<seekBar description="Control black/green color settings."
-name="Blue/Green Level" action="generic /sys/class/mdnie/mdnie/blue_green" unit="" min="0" reversed="false" step="1" max="255"/>
-<seekBar description="Control black/red color settings."
-name="Blue/Red Level" action="generic /sys/class/mdnie/mdnie/blue_red" unit="" min="0" reversed="false" step="1" max="255"/>
-</settingsPane>
-<settingsPane description="Here you can manipulate Cyan level colors." name="Cyan level color control">
-<seekBar description="Control cyan/blue color settings."
-name="Cyan/Blue Level" action="generic /sys/class/mdnie/mdnie/cyan_blue" unit="" min="0" reversed="false" step="1" max="255"/>
-<seekBar description="Control cyan/green color settings."
-name="Cyan/Green Level" action="generic /sys/class/mdnie/mdnie/cyan_green" unit="" min="0" reversed="false" step="1" max="255"/>
-<seekBar description="Control cyan/red color settings."
-name="Cyan/Red Level" action="generic /sys/class/mdnie/mdnie/cyan_red" unit="" min="0" reversed="false" step="1" max="255"/>
-</settingsPane>
-<settingsPane description="Here you can manipulate Green level colors." name="Green level color control">
-<seekBar description="Control green/blue color settings."
-name="Green/Blue Level" action="generic /sys/class/mdnie/mdnie/green_blue" unit="" min="0" reversed="false" step="1" max="255"/>
-<seekBar description="Control green/green color settings."
-name="Green/Green Level" action="generic /sys/class/mdnie/mdnie/green_green" unit="" min="0" reversed="false" step="1" max="255"/>
-<seekBar description="Control green/red color settings."
-name="Green/Red Level" action="generic /sys/class/mdnie/mdnie/green_red" unit="" min="0" reversed="false" step="1" max="255"/>
-</settingsPane>
-<settingsPane description="Here you can manipulate Magenta level colors." name="Magenta level color control">
-<seekBar description="Control magenta/blue color settings."
-name="Magenta/Blue Level" action="generic /sys/class/mdnie/mdnie/magenta_blue" unit="" min="0" reversed="false" step="1" max="255"/>
-<seekBar description="Control magenta/green color settings."
-name="Magenta/Green Level" action="generic /sys/class/mdnie/mdnie/magenta_green" unit="" min="0" reversed="false" step="1" max="255"/>
-<seekBar description="Control magenta/red color settings."
-name="Magenta/Red Level" action="generic /sys/class/mdnie/mdnie/magenta_red" unit="" min="0" reversed="false" step="1" max="255"/>
-</settingsPane>
-<settingsPane description="Here you can manipulate Red level colors." name="Red level color control">
-<seekBar description="Control red/blue color settings."
-name="Red/Blue Level" action="generic /sys/class/mdnie/mdnie/red_blue" unit="" min="0" reversed="false" step="1" max="255"/>
-<seekBar description="Control red/green color settings."
-name="Red/Green Level" action="generic /sys/class/mdnie/mdnie/red_green" unit="" min="0" reversed="false" step="1" max="255"/>
-<seekBar description="Control red/red color settings."
-name="Red/Red Level" action="generic /sys/class/mdnie/mdnie/red_red" unit="" min="0" reversed="false" step="1" max="255"/>
-</settingsPane>
-<settingsPane description="Here you can manipulate White level colors." name="White level color control">
-<seekBar description="Control white/blue color settings."
-name="White/Blue Level" action="generic /sys/class/mdnie/mdnie/white_blue" unit="" min="0" reversed="false" step="1" max="255"/>
-<seekBar description="Control white/green color settings."
-name="White/Green Level" action="generic /sys/class/mdnie/mdnie/white_green" unit="" min="0" reversed="false" step="1" max="255"/>
-<seekBar description="Control white/red color settings."
-name="White/Red Level" action="generic /sys/class/mdnie/mdnie/white_red" unit="" min="0" reversed="false" step="1" max="255"/>
-</settingsPane>
-<settingsPane description="Here you can manipulate Yellow level colors." name="Yellow level color control">
-<seekBar description="Control yellow/blue color settings."
-name="Yellow/Blue Level" action="generic /sys/class/mdnie/mdnie/yellow_blue" unit="" min="0" reversed="false" step="1" max="255"/>
-<seekBar description="Control white/green color settings."
-name="Yellow/Green Level" action="generic /sys/class/mdnie/mdnie/yellow_green" unit="" min="0" reversed="false" step="1" max="255"/>
-<seekBar description="Control white/red color settings."
-name="Yellow/Red Level" action="generic /sys/class/mdnie/mdnie/yellow_red" unit="" min="0" reversed="false" step="1" max="255"/>
 </settingsPane>
 </settingsTab>
 <settingsTab name="Sound">
@@ -358,10 +290,6 @@ name="Microphone In Call Amplifier" action="generic /sys/devices/virtual/misc/bo
 <seekBar description="Microphone Amplifier Level (Used to increase or decrease volume during calls)"
 name="Microphone General Amplifier" action="generic /sys/devices/virtual/misc/boeffla_sound/mic_level_general" unit="" min="0" reversed="false" step="1" max="31"/>
 </settingsPane>
-<settingsPane description="Speaker Amplification Settings" name="Speaker Amplification">
-<seekBar description="Speaker Amplifier Level (Used in playing videos, calls with speakerphone, and so on)"
-name="Speaker Amplifier" action="sound_volume 3" unit="DB" min="-20" reversed="false" step="1" max="20"/>
-</settingsPane>
 </settingsTab>
 <settingsTab name="TouchKeys">
 <settingsPane description="Touchkeys Settings. Disable any touchkeys configurations your ROM might have to use these." name="Touch Keys">
@@ -379,6 +307,21 @@ name="Speaker Amplifier" action="sound_volume 3" unit="DB" min="-20" reversed="f
 <settingsPane description="These settings control memory settings. Keep in mind that these settings give you 'more' memory at the cost of CPU cycles, which means less battery. A restart is recommended when changing memory settings. " name="Memory Settings">
 <checkbox description="Check this to enable Zswap. Don't disable this if your memory is almost full, free some memory before disabling." name="ZSWAP" action="swap" label="ZSWAP"/>
 <seekBar description="Use this to set swappiness level." name="ZSWAP LEVEL" action="generic /proc/sys/vm/swappiness" unit="" min="0" reversed="false" step="1" max="150"/>
+<checkbox description="Enable AUTO OOM control using below profiles, disable if you want to set your own OOM tuning via APP or Script." name="Auto OOM" action="generic01 /sys/module/lowmemorykiller/parameters/auto_oom" label="AUTO OOM CONTROL"/>
+<spinner description="Here you can set the level of low mem management by kernel lowmemkiller function. More aggressive, equals more free RAM but more killed apps." name="OOM Level Screen ON" action="oom_config_screen_on">
+<spinnerItem name="low" value="low"/> 
+<spinnerItem name="medium" value="medium"/> 
+<spinnerItem name="default" value="default"/> 
+<spinnerItem name="aggressive" value="aggressive"/> 
+<spinnerItem name="exterminate" value="exterminate"/> 
+</spinner>
+<spinner description="Here you can set the level of low mem management by kernel lowmemkiller function. More aggressive equals more free RAM but more killed apps." name="OOM Level Screen OFF" action="oom_config_screen_off">
+<spinnerItem name="low" value="low"/> 
+<spinnerItem name="medium" value="medium"/> 
+<spinnerItem name="default" value="default"/> 
+<spinnerItem name="aggressive" value="aggressive"/> 
+<spinnerItem name="exterminate" value="exterminate"/> 
+</spinner>
 <seekBar description="Dirty background memory buffer, more you set, more memory will be used for write buffer for background operations. Buffer is released on need to free RAM (Default: 15%)" name="Dirty Background ratio" action="generic /proc/sys/vm/dirty_background_ratio" unit="%" min="5" reversed="false" step="5" max="80"/>
 <seekBar description="Dirty real time memory buffer, more you set, more memory will be used for write buffer for real time operations. Buffer is released on need to free RAM (Default: 20%)" name="Dirty ratio" action="generic /proc/sys/vm/dirty_ratio" unit="%" min="5" reversed="false" step="5" max="90"/>
 <checkbox description="This will enable Kernel Same-page Merging. KSM is a kernel thread that runs in the background and compares pages in memory, if two pages are found to be the same, the KSM thread merges them back as a single copy-on-write page of memory, thus freeing memory." name="KSM" action="generic01 /sys/kernel/mm/ksm/run" label="KSM"/>
@@ -387,15 +330,8 @@ name="Speaker Amplifier" action="sound_volume 3" unit="DB" min="-20" reversed="f
 </settingsTab>
 <settingsTab name="File system">
 <settingsPane description="These settings control FS options." name="FS Settings">
-<button description="DATA, SYSTEM and CACHE file system check and repair on boot. !WARNING! This is a VERY DANGEROUS option! Before activating it DO A FULL BACKUP with Titanium Backup or any kind of backup application! If you have lots of damage in your DATA partition, after fix and repair, ROM may NOT BOOT anymore! In that case reinstall ROM, and if you still cannot boot, you will have to format DATA file system via recovery! USE IT AT YOUR OWN RISK! THIS FUNCTION IS NOT A TOY! YOU HAVE BEEN WARNED! This function works only for main ROM and Preload partition !also can be the second ROM system!, second ROM data gets no effect, and by default function is OFF. It is also one time action, push the button to Activate, push again to Abort!" name="FIX File System on BOOT" action="push-actions/fix_fs_on_boot" label="FIX DATA ON or OFF"/>
-<checkbox description="Check and repair file system on every boot by auto. See the WARNING ABOVE! DO FULL BACKUP! this is the same thing! just every boot! if all clean then should be OK, Doesn't clean dalvik-cache" name="Check and repair file system on every boot" action="fix_fs_on_boot_auto" label="Check and repair file system on every boot"/>
-<button description="Clean the media cache on your sdcard. Push once to clean, push again to abort. You have to reboot for action to work!" name="Clean media-cache" action="push-actions/fix_media" label="FIX MEDIA ON or OFF"/>
-</settingsPane>
-<settingsPane description="Show Storage status, you can see if you have errors in system, data, cache, efs or preloaded partitions, this will only SHOW if all OK, or there are errors! will not fix them." name="Partitions Scan">
-<button description="Use this to check your data, system, cache, efs, and preloaded partitions for errors. This will not FIX any errors, just check! To fix, backup your files with some backups app, then push the data and cache fix button located at OTHER TAB. USE IT AT YOUR OWN RISK! Some data will be lost! You will need to restore broken apps + data, in case of boot loop, then reinstall ROM. If you are still stuck on boot, wipe and install thr ROM again! It is BETTER to have a clean partition then broken and unstable system." name="Partition Status" action="push-actions/partitions_scan" label="Partition Status"/>
 <seekBar description="Read-ahead buffer size for sdcard. Optimal value varies with sdcard size and file system used. Default is 128KB." name="Read-ahead buffer" action="generic01 /sys/devices/virtual/bdi/179:0/read_ahead_kb" unit="KB" min="128" reversed="false" step="128" max="4096"/>
 <spinner description="This will set the default I/O scheduler. Default I/O scheduler will only be set during early stages of booting (before init.d execution) and can be overriden by later scripts or apps." name="Default I/O Scheduler" action="generic /sys/block/mmcblk0/queue/scheduler">
-<spinnerItem name="bfq" value="bfq"/>
 <spinnerItem name="cfq" value="cfq"/>
 <spinnerItem name="deadline" value="deadline"/>
 <spinnerItem name="noop" value="noop"/>
@@ -404,6 +340,12 @@ name="Speaker Amplifier" action="sound_volume 3" unit="DB" min="-20" reversed="f
 <spinnerItem name="zen" value="zen"/>
 <spinnerItem name="vr" value="vr"/>
 </spinner>
+<button description="DATA, SYSTEM and CACHE file system check and repair on boot. !WARNING! This is a VERY DANGEROUS option! Before activating it DO A FULL BACKUP with Titanium Backup or any kind of backup application! If you have lots of damage in your DATA partition, after fix and repair, ROM may NOT BOOT anymore! In that case reinstall ROM, and if you still cannot boot, you will have to format DATA file system via recovery! USE IT AT YOUR OWN RISK! THIS FUNCTION IS NOT A TOY! YOU HAVE BEEN WARNED! This function works only for main ROM and Preload partition !also can be the second ROM system!, second ROM data gets no effect, and by default function is OFF. It is also one time action, push the button to Activate, push again to Abort!" name="FIX File System on BOOT" action="push-actions/fix_fs_on_boot" label="FIX DATA ON or OFF"/>
+<checkbox description="Check and repair file system on every boot by auto. See the WARNING ABOVE! DO FULL BACKUP! this is the same thing! just every boot! if all clean then should be OK, Doesn't clean dalvik-cache" name="Check and repair file system on every boot" action="fix_fs_on_boot_auto" label="Check and repair file system on every boot"/>
+<button description="Clean the media cache on your sdcard. Push once to clean, push again to abort. You have to reboot for action to work!" name="Clean media-cache" action="push-actions/fix_media" label="FIX MEDIA ON or OFF"/>
+</settingsPane>
+<settingsPane description="Show Storage status, you can see if you have errors in system, data, cache, efs or preloaded partitions, this will only SHOW if all OK, or there are errors! will not fix them." name="Partitions Scan">
+<button description="Use this to check your data, system, cache, efs, and preloaded partitions for errors. This will not FIX any errors, just check! To fix, backup your files with some backups app, then push the data and cache fix button located at OTHER TAB. USE IT AT YOUR OWN RISK! Some data will be lost! You will need to restore broken apps + data, in case of boot loop, then reinstall ROM. If you are still stuck on boot, wipe and install thr ROM again! It is BETTER to have a clean partition then broken and unstable system." name="Partition Status" action="push-actions/partitions_scan" label="Partition Status"/>
 </settingsPane>
 </settingsTab>
 <settingsTab name="TWEAKS">
@@ -429,14 +371,6 @@ name="Speaker Amplifier" action="sound_volume 3" unit="DB" min="-20" reversed="f
 <spinnerItem name="Restore original ROM gps.conf" value="Original_ROM_GPS_Restored"/> 
 </spinner>
 <button description="Click to see your current GPS ZONE" name="GPS ZONE" action="gpszonecheck" label="GPS ZONE CHECK"/>
-<button description="Update time via NTP server" name="UPDATE TIME" action="push-actions/time_update" label="UPDATE TIME"/>
-</settingsPane>
-<settingsPane description="Here you can Add, Update or Remove AD Blocker! You need ROOT to do the tweak! If you want to update the blocker, you can push the UPDATE AD NOW button, to get the new one installed! If you install a new ROM, and you want to use AD BLOCKER, then push UPDATE AD NOW and REBOOT. If you need to REMOVE AD-BLOCKER use the REMOVE button and REBOOT" name="AD Blocker">
-<button description="ADD or UPDATE AD BLOCKER" name="AD-B UPDATE or ADD" action="push-actions/ad_update" label="UPDATE AD-B NOW"/>
-<button description="REMOVE AD Blocker" name="AD-B REMOVE" action="push-actions/ad_restore" label="REMOVE AD-B NOW"/>
-</settingsPane>
-<settingsPane description="INIT.D" name="INIT.D">
-<checkbox description="Enable or Disable INIT.D scripts RUN on boot. Many new ROMS are running the init.d scripts automatically. You can also force running the scripts, but if you run them and ROM runs them too, we have a problem: all scripts are running X2 times! To avoid conflicts, Stweaks RUN-control is disabled by default. If you know that your ROM is NOT supporting init.d script running, then turn it ON here and reboot." name="INIT.D Scripts RUN control" action="generic_cortex /tmp/init_d" label="Enable INIT.D scripts RUN-control"/>
 </settingsPane>
 <settingsPane description="WIFI Settings" name="WIFI">
 <button description="Clean WIFI DHCP IP Lease. Push the button to activate!" name="Clean WIFI Lease" action="push-actions/fix_wifi" label="Clean WIFI Lease"/>
@@ -480,13 +414,12 @@ name="Speaker Amplifier" action="sound_volume 3" unit="DB" min="-20" reversed="f
 <settingsPane description="Here you can backup or restore your profile after installing new kernel. When you restore your configuration, please wait till this app restarts with the new settings. Some settings will work only after reboot! Restore will take up to 30 sec, just wait here!" name="STweaks Settings Backup or Restore">
 <button description="Backup STweaks User Settings!" name="Settings Backup" action="push-actions/config_backup_restore 1" label="BACKUP NOW"/>
 <button description="Restore STweaks User Settings!" name="Settings Restore" action="push-actions/config_backup_restore 2" label="RESTORE NOW"/>
-<button description="If you think that the fuel gauge chip is behaving weird use this button to reset it. Give it a few hours after you reset the gauge. It may still show you funny values for those period, then the battery percentage should be fine." name="Reset Fuel-Gauge Chip" action="reset-fuelgauge" label="Reset Fuel-Gauge Chip"/>
 <button description="This will restore stweaks settings to default. Restart the device after pressing the button." name="Reset Stweaks Settings" action="reset" label="Reset Settings"/>
 </settingsPane>
 </settingsTab>
 <settingsTab name="Dual Boot">
 <settingsPane description="Warning: No confirmation will be asked for reboot buttons." name="Dual Boot Settings">
-<button description="Reboot into recovery" name="Reboot into recovery" action="reboot-into 0" label="Reboot into recovery"/>
+<button description="Reboot into recovery" name="Reboot into recovery" action="reboot-into recovery" label="Reboot into recovery"/>
 <checkbox description="Check this if you don't want boot menu to be shown. If this options is checked, boot menu will not be shown even if you have 2nd ROM installed." name="No boot-menu" action="no-boot-menu" label="No boot-menu"/>
 <spinner description="Default ROM to boot into. If you don't have 2nd ROM installation 1st ROM will be booted." name="Default ROM" action="defaultrom">
 <spinnerItem name="1st ROM" value="0"/> 
