@@ -271,27 +271,73 @@ name="Mode" action="generic /sys/class/mdnie/mdnie/mode" unit="" min="0" reverse
 <checkbox description="MDNIE Negative Switch" name="Negative" action="generic01 /sys/class/mdnie/mdnie/negative" label="MDNIE Negative Switch"/>
 </settingsPane>
 </settingsTab>
-<settingsTab name="Sound">
-<settingsPane description="This is the Master Control switch for Boeffla Sound. The settings below will do nothing if this isn't enabled!" name="Boeffla Sound Switch">
-<checkbox description="Boeffla Sound On or Off Switch" name="BoefflaSound" action="generic01 /sys/devices/virtual/misc/boeffla_sound/boeffla_sound" label="BoefflaSound"/>
+<settingsTab name="Audio">
+<settingsPane description="Boeffla Sound Settings" name="Boeffla Sound">
+<spinner description="Enable or disable Boeffla Audio Engine" name="Boeffla Audio" action="generic /sys/class/misc/boeffla_sound/boeffla_sound">
+<spinnerItem name="Enabled" value="1"/> 
+<spinnerItem name="Disabled" value="0"/> 
+</spinner>
+<checkbox description="DAC Direct to bypass the analog channel" name="DAC Direct" action="generic01 /sys/class/misc/boeffla_sound/dac_direct" label="Enables DAC Direct"/>
+<checkbox description="DAC Oversampling by 128 times" name="DAC Oversampling" action="generic01 /sys/class/misc/boeffla_sound/dac_oversampling" label="Enables DAC Oversampling"/>
+<checkbox description="Tune the chip clock for better quality" name="FLL Tuning " action="generic01 /sys/class/misc/boeffla_sound/fll_tuning" label="Enables FLL Tuning"/>
+<checkbox description="Tune up the phone speaker" name="Speaker Tuning" action="generic01 /sys/class/misc/boeffla_sound/speaker_tuning" label="Enables Speaker Tuning"/>
+<checkbox description="Convert Stereo into Mono" name="Mono Downmix" action="generic01 /sys/class/misc/boeffla_sound/mono_downmix" label="Enables Mono Downmix"/>
+<seekBar  description="Improves Sound Deepness and Clarity" name="Stereo Expansion" action="generic /sys/class/misc/boeffla_sound/stereo_expansion" unit="" min="0" reversed="false" step="1" max="31"/>
+<checkbox  description="Prevents any sound to be outputted via speaker when headphones are connected." name="Privacy mode" action="generic01 /sys/class/misc/boeffla_sound/privacy_mode" label="Enable Privacy Mode"/>
 </settingsPane>
-<settingsPane description="Speaker Sound Amplification" name="Speaker Volume Gain">
-<seekBar description="Master volume, gain power level, affects all channels" name="Speaker volume gain" action="generic /sys/devices/virtual/misc/boeffla_sound/speaker_volume" unit="" min="57" reversed="false" step="1" max="63"/>
+<settingsPane description="Speaker amplification increases volume only on the speakers." name="Speaker Amplification">
+<seekBar  description="Speaker Amplifier Level (0-63 which corresponds to -57db-6db)" name="Speaker left channel volume" action="boeffla-speaker left" unit="" min="0" reversed="false" step="1" max="63"/>      
+<seekBar  description="" name="Speaker right channel volume" action="boeffla-speaker right" unit="" min="0" reversed="false" step="1" max="63"/>
 </settingsPane>
-<settingsPane description="Headphone Amplification Settings" name="Headphone Amplification">
-<seekBar description="Headphone Master Volume Level"
-name="Analog Headphone" action="generic /sys/devices/virtual/misc/boeffla_sound/headphone_volume" unit="" min="20" reversed="false" step="1" max="63"/>
+<settingsPane description="Headphone amplification increases volume only on headphones and headsets." name="Headphone Amplification">
+<seekBar  description="Headphone Amplifier Level (0-63 which corresponds to -57db-6db)" name="Headphone left channel volume" action="boeffla-headphone left" unit="" min="0" reversed="false" step="1" max="63"/>      
+<seekBar  description="" name="Headphone right channel volume" action="boeffla-headphone right" unit="" min="0" reversed="false" step="1" max="63"/>
 </settingsPane>
-<settingsPane description="Microphone Amplification Settings" name="Microphone Amplification">
-<seekBar description="Microphone Amplifier Level (Used to increase or decrease volume during calls)"
-name="Microphone In Call Amplifier" action="generic /sys/devices/virtual/misc/boeffla_sound/mic_level_call" unit="" min="0" reversed="false" step="1" max="31"/>
-<seekBar description="Microphone Amplifier Level (Used to increase or decrease volume during calls)"
-name="Microphone General Amplifier" action="generic /sys/devices/virtual/misc/boeffla_sound/mic_level_general" unit="" min="0" reversed="false" step="1" max="31"/>
+<settingsPane description="Controls the hardware equalizer." name="Equalizer settings">
+<spinner description="Enable or disable Boeffla Equalizer" name="Boeffla EQ" action="generic /sys/class/misc/boeffla_sound/eq">
+<spinnerItem name="Disabled" value="0"/> 
+<spinnerItem name="Enabled" value="1"/> 
+<spinnerItem name="Enabled without Saturation Prevention" value="2"/>
+</spinner>
+<spinner description="Optimizes the bass frequency for better sound" name="Bass Frequency Optimisation" action="eq-bands eq_bass">
+<spinnerItem name="Disabled" value="0"/> 
+<spinnerItem name="Enabled" value="1"/> 
+</spinner>
+<spinner description="Choose which equalizer settings to use: Presets or Graphical Equalizer." name="EQ Presets" action="eq-presets eq_selection">
+<spinnerItem name="Use presets" value="0"/> 
+<spinnerItem name="Use graphical equalizer" value="1"/> 
+</spinner>
+<spinner description="This will set the EQ Gain Preset." name="EQ Gain Preset" action="eq-presets eq_preset">
+<spinnerItem name="None" value="0"/> 
+<spinnerItem name="Archis Audiophile" value="1"/>
+<spinnerItem name="Baseland" value ="2"/>
+<spinnerItem name="Bass Extreme" value="3"/> 
+<spinnerItem name="Bass treble" value="4"/> 
+<spinnerItem name="Classic" value="5"/> 
+<spinnerItem name="Dance" value="6"/> 
+<spinnerItem name="Eargasm" value="7"/> 
+<spinnerItem name="Metal/Rock" value="8"/> 
+<spinnerItem name="Pleasant" value="9"/> 
+<spinnerItem name="Treble" value="10"/> 
+</spinner>
 </settingsPane>
+<settingsPane description="Graphical Equalizer" name="Graphical Equalizer">
+<seekBar description="" name="Band1 gain" action="eq-presets eq_band1" unit=" dB" min="-12" reversed="false" step="1" max="12"/>
+<seekBar description="" name="Band2 gain" action="eq-presets eq_band2" unit=" dB" min="-12" reversed="false" step="1" max="12"/>
+<seekBar description="" name="Band3 gain" action="eq-presets eq_band3" unit=" dB" min="-12" reversed="false" step="1" max="12"/>
+<seekBar description="" name="Band4 gain" action="eq-presets eq_band4" unit=" dB" min="-12" reversed="false" step="1" max="12"/>
+<seekBar description="" name="Band5 gain" action="eq-presets eq_band5" unit=" dB" min="-12" reversed="false" step="1" max="12"/>
+</settingsPane>
+<settingsPane description="The microphone levels control the mic sensitivity." name="Microphone control">
+<seekBar  description="" name="Microphone General Gain" action="generic /sys/class/misc/boeffla_sound/mic_level_general" unit="" min="0" reversed="false" step="1" max="31"/>
+<seekBar  description="" name="Microphone Gain in Call" action="generic /sys/class/misc/boeffla_sound/mic_level_call" unit="" min="0" reversed="false" step="1" max="31"/>
+</settingsPane> 
 </settingsTab>
-<settingsTab name="TouchKeys">
-<settingsPane description="Touchkeys Settings. Disable any touchkeys configurations your ROM might have to use these." name="Touch Keys">
-<checkbox description="Selecting this will force disable touchkeys no matter what settings are set below." name="Force Disable Touchkeys" action="generic01 /sys/devices/virtual/sec/sec_touchkey/force_disable" label="Force Disable Touchkeys"/>
+<settingsTab name="LED">
+<settingsPane description="Control the way the LED blinks." name="Blinking effect">
+<checkbox description="If disabled, ignores the below detention times and the blinking waveform has no slopes, i.e. it is square." name="Enable fading" action="generic01 /sys/class/sec/led/led_fade" label="Enable LED fading"/>
+<seekBar description="LED Blinking Speed" name="LED speed" action="generic /sys/class/sec/led/led_speed" unit="" min="0" reversed="false" step="1" max="15"/>
+<seekBar description="The intensitiy of the LED." name="LED Intensity" action="generic /sys/class/sec/led/led_intensity" unit="" min="0" reversed="false" step="1" max="255"/>    
 </settingsPane>
 </settingsTab>
 <settingsTab name="Apps Random">
