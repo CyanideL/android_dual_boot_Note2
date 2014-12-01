@@ -333,11 +333,14 @@ name="Mode" action="generic /sys/class/mdnie/mdnie/mode" unit="" min="0" reverse
 <seekBar  description="" name="Microphone Gain in Call" action="generic /sys/class/misc/boeffla_sound/mic_level_call" unit="" min="0" reversed="false" step="1" max="31"/>
 </settingsPane> 
 </settingsTab>
-<settingsTab name="LED">
+<settingsTab name="LED and TouchKeys">
 <settingsPane description="Control the way the LED blinks." name="Blinking effect">
 <checkbox description="If disabled, ignores the below detention times and the blinking waveform has no slopes, i.e. it is square." name="Enable fading" action="generic01 /sys/class/sec/led/led_fade" label="Enable LED fading"/>
 <seekBar description="LED Blinking Speed" name="LED speed" action="generic /sys/class/sec/led/led_speed" unit="" min="0" reversed="false" step="1" max="15"/>
 <seekBar description="The intensitiy of the LED." name="LED Intensity" action="generic /sys/class/sec/led/led_intensity" unit="" min="0" reversed="false" step="1" max="255"/>    
+</settingsPane>
+<settingsPane description="Touchkeys Settings. Disable any touchkeys configurations your ROM might have to use these." name="Touch Keys">
+<checkbox description="Selecting this will force disable touchkeys no matter what settings are set below." name="Force Disable Touchkeys" action="generic01 /sys/devices/virtual/sec/sec_touchkey/force_disable" label="Force Disable Touchkeys"/>
 </settingsPane>
 </settingsTab>
 <settingsTab name="Apps Random">
