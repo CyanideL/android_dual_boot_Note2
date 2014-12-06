@@ -245,6 +245,29 @@ name="GPU Threshold 4-UP" action="gpu-thresh 4UP" unit="%" min="0" reversed="fal
 name="GPU Threshold 5-DOWN" action="gpu-thresh 5DOWN" unit="%" min="0" reversed="false" step="5" max="100"/>
 </settingsPane>
 </settingsTab>
+<settingsTab name="ABB">
+<settingsPane description="Adaptive Body Bias is a secondary voltage applied onto the body of the transistor, where as the normal voltage is the gate voltage. Adjusting the body voltage in a differential to the gate voltage changes the characteristics of the transistor in how it switches. The body bias is the delta of the body voltage to the gate voltage, or difference between gate voltage minus body voltage. A positive body bias results in a Forward Body Bias (FBB) which lowers the transistor switching threshold and allows for higher clocks at the same voltage, or lower voltage at the same clocks. A negative body bias, or Reverse Body Bias (RBB) raises the switching threshold and can drastically improve leakage, but with the reverse effects of FBB in terms of voltage and clocks. WARNING: For advanced users only who understand the electrical physics behind it." name="Adaptive Body Bias">
+</settingsPane>
+<settingsPane description="ARM (CPU) body bias voltages." name="CPU">
+<seekBar  description="Slice 1 frequencies ." name="Slice 1 voltage" action="generic /sys/devices/system/abb/arm/arm_slice_1_volt" unit="mV" min="600" reversed="false" step="50" max="1600"/>
+<seekBar  description="Slice 2 frequencies ." name="Slice 2 voltage" action="generic /sys/devices/system/abb/arm/arm_slice_2_volt" unit="mV" min="600" reversed="false" step="50" max="1600"/>
+<seekBar  description="Slice 3 frequencies ." name="Slice 3 voltage" action="generic /sys/devices/system/abb/arm/arm_slice_3_volt" unit="mV" min="600" reversed="false" step="50" max="1600"/>
+<seekBar  description="Slice 4 frequencies ." name="Slice 4 voltage" action="generic /sys/devices/system/abb/arm/arm_slice_4_volt" unit="mV" min="600" reversed="false" step="50" max="1600"/>
+</settingsPane>
+<settingsPane description="G3D (GPU) body bias voltages." name="GPU">
+<seekBar  description="Slice 1 frequencies ." name="Slice 1 voltage" action="generic /sys/devices/system/abb/g3d/g3d_slice_1_volt" unit="mV" min="600" reversed="false" step="50" max="1600"/>
+<seekBar  description="Slice 2 frequencies ." name="Slice 2 voltage" action="generic /sys/devices/system/abb/g3d/g3d_slice_2_volt" unit="mV" min="600" reversed="false" step="50" max="1600"/>
+<seekBar  description="Slice 3 frequencies ." name="Slice 3 voltage" action="generic /sys/devices/system/abb/g3d/g3d_slice_3_volt" unit="mV" min="600" reversed="false" step="50" max="1600"/>
+</settingsPane>
+<settingsPane description="MIF (Memory interface) body bias voltages" name="MIF">
+<seekBar  description="Slice 1 frequencies ." name="Slice 1 voltage" action="generic /sys/devices/system/abb/mif/mif_slice_1_volt" unit="mV" min="600" reversed="false" step="50" max="1600"/>
+<seekBar  description="Slice 2 frequencies ." name="Slice 2 voltage" action="generic /sys/devices/system/abb/mif/mif_slice_2_volt" unit="mV" min="600" reversed="false" step="50" max="1600"/>
+</settingsPane>
+<settingsPane description="INT (Internal SoC) body bias voltages." name="INT">
+<seekBar  description="Slice 1 frequencies ." name="Slice 1 voltage" action="generic /sys/devices/system/abb/int/int_slice_1_volt" unit="mV" min="600" reversed="false" step="50" max="1600"/>
+<seekBar  description="Slice 2 frequencies ." name="Slice 2 voltage" action="generic /sys/devices/system/abb/int/int_slice_2_volt" unit="mV" min="600" reversed="false" step="50" max="1600"/>
+</settingsPane>
+</settingsTab>
 <settingsTab name="Screen">
 <settingsPane description="TouckWake Settings" name="TouchWake Settings">
 <checkbox description="TouchWake/DoubleTap2Wake On or Off Switch! Timeout must be set to 0 for Double Tap and Slide2wake must be off" name="TouchWake" action="generic01 /sys/class/misc/touchwake/enabled" label="TouchWake"/>
