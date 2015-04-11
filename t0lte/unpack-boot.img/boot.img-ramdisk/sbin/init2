@@ -39,43 +39,19 @@ fi
 
 /sbin/busybox mkdir -p /.secondrom/media/0
 
-CM110=0
+CM120=0
 SAMMY44=0
 
-/sbin/busybox [ -f /system/priv-app/Settings.apk ] && CM110=1
+/sbin/busybox [ -f /system/priv-app/Settings.apk ] && CM120=1
 /sbin/busybox [ -f /system/priv-app/SecSettings.apk ] && SAMMY44=1
 
-if /sbin/busybox [ "$CM110" == 1 ]; then
-# Hijacking bootloader cmdline, completely disable SELinux
-    /sbin/busybox mount -t tmpfs tmpfs /tmp
-    if /sbin/busybox grep -q "selinux" /proc/cmdline ; then
-      # KitKat bootloader
-      /sbin/busybox sed -e 's/selinux\=enforcing/selinux\=permissive/' \
-        /proc/cmdline > /tmp/cmdline
-    else
-      # JellyBean bootloader
-      /sbin/busybox sed -e 's/lpcharge\=0/androidboot\.selinux\=permissive/' \
-        /proc/cmdline > /tmp/cmdline
-    fi
-    /sbin/busybox mount --bind -o ro /tmp/cmdline /proc/cmdline
+if /sbin/busybox [ "$CM120" == 1 ]; then
     
   /sbin/busybox echo 1 > /proc/sys/kernel/rom_feature_set
-  /sbin/busybox mv -f /res/misc/init.cm11.0/* /
-  /sbin/fstab.sh $DEFAULTROM CM110
+  /sbin/busybox mv -f /res/misc/init.cm12.0/* /
+  /sbin/fstab.sh $DEFAULTROM CM120
 else
   if /sbin/busybox [ "$SAMMY44" == 1 ]; then
-  # Hijacking bootloader cmdline, completely disable SELinux
-    /sbin/busybox mount -t tmpfs tmpfs /tmp
-    if /sbin/busybox grep -q "selinux" /proc/cmdline ; then
-      # KitKat bootloader
-      /sbin/busybox sed -e 's/selinux\=enforcing/selinux\=disabled/' \
-        /proc/cmdline > /tmp/cmdline
-    else
-      # JellyBean bootloader
-      /sbin/busybox sed -e 's/lpcharge\=0/androidboot\.selinux\=disabled/' \
-        /proc/cmdline > /tmp/cmdline
-    fi
-    /sbin/busybox mount --bind -o ro /tmp/cmdline /proc/cmdline
     
     /sbin/busybox echo 0 > /proc/sys/kernel/rom_feature_set
     /sbin/busybox mv -f /res/misc/init.44/* /

@@ -8,18 +8,9 @@ cd /
 
 /sbin/busybox mount -t proc proc /proc
 /sbin/busybox mount -t sysfs sysfs /sys
-
-# Charging, low power mode
-if /sbin/busybox grep -q 1 /sys/class/power_supply/battery/batt_lp_charging ; then
-  # Hijacking cmdline in LPM
-  /sbin/busybox mount -t tmpfs tmpfs /tmp
-  /sbin/busybox sed -e 's/lpcharge\=1/androidboot\.mode\=charger/' \
-    -e 's/selinux\=enforcing/selinux\=permissive/' \
-    /proc/cmdline > /tmp/cmdline
-  /sbin/busybox mount --bind -o ro /tmp/cmdline /proc/cmdline
   
   /sbin/busybox echo 1 > /proc/sys/kernel/rom_feature_set
-  /sbin/busybox mv -f /res/misc/init.cm11.0/* /
+  /sbin/busybox mv -f /res/misc/init.cm12.0/* /
   /sbin/busybox chmod 755 /innt
   /sbin/busybox chmod 644 /*.smdk4x12*
   /sbin/busybox chmod 644 /*.rc
@@ -32,10 +23,9 @@ fi
 SYSTEMDEV="/dev/block/mmcblk0p13"
 DATADEV="/dev/block/mmcblk0p16"
 CACHEDEV="/dev/block/mmcblk0p12"
-HIDDENDEV="/dev/block/mmcblk0p12" # same as cachedev for cache dev
+HIDDENDEV="/dev/block/mmcblk0p14" # same as cachedev for cache dev
 
 # Normal boot
-/sbin/busybox rm -f /sbin/lpm
 /sbin/busybox mkdir -p /dev/block
 /sbin/busybox mknod $CACHEDEV b 179 12; # /cache
 /sbin/busybox mknod $SYSTEMDEV b 179 13; # /system

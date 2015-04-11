@@ -4,7 +4,7 @@
 # Do not remove above credits header!
 # Brett Rogers edit/config Galaxy Note 2 LTE
 
-# Usage: fstab.sh [0|1] [sammy42|sammy44|cm110]
+# Usage: fstab.sh [0|1] [sammy42|sammy44|cm120]
 
 EXT4OPT="noatime,nosuid,nodev,discard,noauto_da_alloc,journal_async_commit,errors=panic    wait,check"
 F2FSOPB="background_gc=off,inline_xattr,active_logs=2    wait"
@@ -21,7 +21,7 @@ DATADEV="\
 CACHEDEV="\
 /dev/block/mmcblk0p12     "
 HIDDENDEV="\
-/dev/block/mmcblk0p12    "; # Same as CACHEDEV for a common /cache
+/dev/block/mmcblk0p14    "; # Same as CACHEDEV for a common /cache
 
 # No problem with /dev/block/platform/*/by-name/* symlink, blkid is not use here.
 EFS="\
@@ -62,9 +62,9 @@ SAMMY44="
 /devices/platform/s5p-ehci/usb1*sde              auto           vfat    default    voldmanaged=UsbDriveE:auto
 /devices/platform/s5p-ehci/usb1*sdf              auto           vfat    default    voldmanaged=UsbDriveF:auto"
 
-CM110="
-/devices/platform/s3c-sdhci.2/mmc_host/mmc1      auto           auto    defaults    voldmanaged=sdcard1:auto
-/devices/platform/s5p-ehci                       auto           auto    defaults    voldmanaged=usbdisk0:auto"
+CM120="
+/devices/platform/s3c-sdhci.2/mmc_host/mmc1*     auto        auto        defaults    voldmanaged=sdcard1:auto,noemulatedsd
+/devices/platform/s5p-ehci*                       auto           auto    defaults    voldmanaged=usbdisk0:auto"
 
 DATAPOINT="/data      "
 
@@ -101,7 +101,7 @@ if /sbin/busybox echo "$2" | /sbin/busybox grep -q -i "SAMMY44"; then
   /sbin/busybox echo -e "$SAMMY44" >> $FSTAB
 fi
 
-if /sbin/busybox echo "$2" | /sbin/busybox grep -q -i "CM110"; then
+if /sbin/busybox echo "$2" | /sbin/busybox grep -q -i "CM120"; then
    /sbin/busybox echo "$RADIO" >> $FSTAB; # Galaxy Tab 3 T315 LTE/ Galaxy Note 2 LTE
   /sbin/busybox echo -e "$CM110" >> $FSTAB
 fi
